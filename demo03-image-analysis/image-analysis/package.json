@@ -4,7 +4,8 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "sls invoke local -f image-analysis --path request.json",
+    "start:prod": "sls invoke -f image-analysis --path request.json"
   },
   "keywords": [],
   "author": "",
