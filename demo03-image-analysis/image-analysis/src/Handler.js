@@ -1,10 +1,5 @@
-const {
-  ImageHandlerService,
-  RekognitionService,
-  TranslatorService,
-} = require("./services");
-
-const { formatTextResponse } = require("./helpers");
+const { RekognitionService, TranslatorService } = require("./services");
+const { formatTextResponse, handleGetImage } = require("./helpers");
 
 class Handler {
   constructor({ rekognitionService, translatorService }) {
@@ -15,8 +10,6 @@ class Handler {
     this.rekognitionService = new RekognitionService({
       rekognition: rekognitionService,
     });
-
-    this.imageHandlerService = new ImageHandlerService();
   }
 
   async main(event) {
@@ -27,7 +20,7 @@ class Handler {
         imageUrl,
       } = event.queryStringParameters;
 
-      const imageBuffer = await this.imageHandlerService.handle(imageUrl);
+      const imageBuffer = await handleGetImage(imageUrl);
 
       const { labels, rekognizedItems } = await this.rekognitionService.handle(
         imageBuffer

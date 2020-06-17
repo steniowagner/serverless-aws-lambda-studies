@@ -5,7 +5,7 @@ class TranslatorService {
 
   async handle(text, sourceLanguageCode, targetLanguageCode) {
     console.log(
-      `>>> Translating labels from ${sourceLanguageCode} to ${targetLanguageCode}...`
+      `>>> Translating labels from "${sourceLanguageCode}" to "${targetLanguageCode}"...`
     );
 
     const params = {
