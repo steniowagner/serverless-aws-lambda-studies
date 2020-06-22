@@ -17,7 +17,7 @@ class BooksHandler {
     try {
       const book = makeBook(body);
 
-      this.dynamoDBService.create(book);
+      await this.dynamoDBService.create(book);
 
       return httpResponse.createdResponse(book);
     } catch (err) {
