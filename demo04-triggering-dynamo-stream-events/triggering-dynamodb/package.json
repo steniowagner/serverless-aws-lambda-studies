@@ -14,6 +14,6 @@
   "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
-    "aws-sdk": "^2.701.0"
+    "aws-sdk": "^2.814.0"
   }
 }
